@@ -23,7 +23,7 @@ export class UsersService {
   }
   async update(id: number, updateUserInput: UpdateUserInput): Promise<User> {
     await this.userRepository.update(id, updateUserInput);
-    return await this.userRepository.findOneOrFail(id);
+    return this.userRepository.findOne({ id });
   }
   async delete(id: number) {
     await this.userRepository.delete(id);

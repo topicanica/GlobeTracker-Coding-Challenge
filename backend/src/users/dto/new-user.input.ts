@@ -1,6 +1,5 @@
-import { Field, GraphQLISODateTime, ID, InputType } from "@nestjs/graphql";
-import { IsEmail, IsEnum, IsMobilePhone, IsDate, IsAlpha, IsNumberString } from 'class-validator';
-import { type } from "os";
+import { Field, InputType } from "@nestjs/graphql";
+import { IsEmail, IsMobilePhone, IsAlpha, IsNumberString } from 'class-validator';
 import { UserType } from "../enums/user-type.enum";
 
 @InputType()

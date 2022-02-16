@@ -1,9 +1,9 @@
 import { registerEnumType } from "@nestjs/graphql";
 
 export enum UserType {
-    Basic,
-    Extended,
-    Advanced,
+    Basic = "Basic",
+    Extended = "Extended",
+    Advanced = "Advanced",
 }
 registerEnumType(UserType, {
     name: 'UserType',

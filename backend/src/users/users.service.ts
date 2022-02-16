@@ -22,8 +22,13 @@ export class UsersService {
     return newUser;
   }
   async update(id: number, updateUserInput: UpdateUserInput): Promise<User> {
-    await this.userRepository.update(id, updateUserInput);
-    return this.userRepository.findOne({ id });
+    const user = await this.userRepository.findOne({ where: { id } });
+    if (!user) {
+      throw new Error(`The user with id: ${id} does not exist!`);
+    }
+    Object.assign(user, updateUserInput);
+    await this.userRepository.save(user);
+    return user;
   }
   async delete(id: number) {
     await this.userRepository.delete(id);
